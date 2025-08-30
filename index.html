@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Техника • Дороги • Логистика • Спецтехника</title>
+  <meta name="description" content="Импорт и поставка строительной техники, дорожного строительства, склада и логистики, оборудования и спецтехники из Китая. RU/KG" />
+  <style>
+    :root{
+      --primary:#ff7a00; --blue:#0b2e4e; --bg:#f8fafc; --card:#ffffff;
+      --text:#0b1220; --muted:#5f6b7a; --ring: rgba(255,122,0,.25); --ok:#10b981;
+      /* путь к изображению фона hero */
+      --hero-img: url("Images/hhh.jpg");
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1160px;margin-inline:auto;padding:0 20px}
+
+    /* RU/KG visibility switch */
+    html.lang-ru .kg{display:none !important}
+    html.lang-kg .ru{display:none !important}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e5e7eb}
+    .nav{display:flex;align-items:center;gap:20px;justify-content:space-between;padding:14px 0}
+    .brand{font-weight:800;letter-spacing:.3px;color:var(--blue);display:flex;align-items:center;gap:10px}
+    .brand .dot{width:10px;height:10px;background:var(--primary);border-radius:50%}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a{padding:8px 10px;border-radius:10px}
+    .nav-links a:hover{background:#f1f5f9}
+
+    .lang-switch{display:flex;gap:8px}
+    .chip{border:1px solid #e5e7eb;background:white;padding:6px 10px;border-radius:12px;cursor:pointer;font-weight:600}
+    .chip.active{border-color:var(--primary);box-shadow:0 0 0 3px var(--ring)}
+
+    /* Hero (фон + затемнение) */
+    .hero{
+      position:relative;
+      color:#fff;
+      padding: clamp(56px, 10vw, 140px) 0 clamp(28px, 6vw, 60px);
+      min-height: clamp(420px, 70vh, 680px);
+      background:
+        linear-gradient(180deg, rgba(11,46,78,.78) 0%, rgba(11,46,78,.48) 55%, rgba(11,46,78,.65) 100%),
+        var(--hero-img) center/cover no-repeat;
+    }
+    .hero .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    .title{font-size:clamp(28px, 3.5vw, 42px);font-weight:900;color:#fff;line-height:1.1;margin:0 0 12px}
+    .subtitle{color:rgba(255,255,255,.92);font-size:clamp(14px, 2.1vw, 18px);margin:0 0 16px}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+    .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);padding:6px 10px;border-radius:999px;font-size:13px;color:#fff}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{background:var(--primary);color:#fff;padding:12px 16px;border-radius:12px;font-weight:700;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
+    .btn.secondary{background:rgba(17,24,39,.9);color:#fff}
+
+    /* «Стеклянная» карточка в hero */
+    .side-card{
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 18px; padding:20px; color:#fff;
+    }
+    .side-card ul{margin:0;padding-left:18px}
+
+    /* Общие секции */
+    section{padding:28px 0}
+    h2{font-size:26px;margin:0 0 12px;color:#0f172a}
+    p.lead{color:var(--muted);margin:0 0 10px}
+
+    /* Cards */
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.06)}
+    .icon{width:38px;height:38px;border-radius:12px;background:rgba(255,122,0,.1);display:grid;place-items:center}
+    .ru{font-weight:800}
+    .kg{color:var(--muted);font-weight:600}
+    .list{margin:0;padding-left:18px;color:#334155}
+
+    /* Уменьшаем и выравниваем картинки в карточках */
+    .card img{
+      width:100%;
+      height:160px;             /* единый размер */
+      object-fit:cover;         /* кадрирование без искажений */
+      border-radius:12px;
+      display:block;
+    }
+
+    /* Services grid */
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .svc{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:16px}
+
+    /* Form */
+    .form{display:grid;gap:12px;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:18px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input, select, textarea{width:100%;padding:12px 12px;border:1px solid #e5e7eb;border-radius:12px;font:inherit}
+    input:focus, select:focus, textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px var(--ring)}
+    .muted{font-size:13px;color:var(--muted)}
+    .success{display:none;margin-top:6px;color:var(--ok);font-weight:700}
+
+    /* Footer */
+    footer{border-top:1px solid #e5e7eb;margin-top:24px;padding:18px 0;color:#475569}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{background-position:center top}
+      .hero .grid{grid-template-columns:1fr}
+      .grid4{grid-template-columns:1fr 1fr}
+      .grid3{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .card img{height:140px}
+    }
+    @media (max-width: 520px){
+      .grid4{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .card img{height:120px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span><span id="brand">ChinaConstruct.kg</span></div>
+      <nav class="nav-links">
+        <a href="#categories" data-i18n="nav.categories">Категории</a>
+        <a href="#services" data-i18n="nav.services">Услуги</a>
+        <a href="#about" data-i18n="nav.about">О нас</a>
+        <a href="#contact" data-i18n="nav.contact">Контакты</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button class="chip active" id="btn-ru">RU</button>
+        <button class="chip" id="btn-kg">KG</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container grid">
+
+        <div>
+          <h1 class="title" data-i18n="hero.title">Импорт и поставка техники из Китая</h1>
+          <p class="subtitle" data-i18n="hero.subtitle">Подбираем завод, проверяем, оформляем, доставляем. Категории ниже представлены сразу на русском и кыргызском.</p>
+          <div class="badges">
+            <span class="badge" data-i18n="hero.b1">CIP/FOB Бишкек</span>
+            <span class="badge" data-i18n="hero.b2">OEM / ODM</span>
+            <span class="badge" data-i18n="hero.b3">QC инспекция</span>
+            <span class="badge" data-i18n="hero.b4">Инвойс | Контракт</span>
+          </div>
+          <div class="cta">
+            <a href="#contact" class="btn" id="cta-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 01-2 2H8l-5 5V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-i18n="hero.cta">Получить предложение</span>
+            </a>
+            <a href="#categories" class="btn secondary"><span data-i18n="hero.see">Смотреть категории</span></a>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h3>Что вы получите</h3>
+          <ul>
+            <li>Подбор 3–5 заводов под ваш запрос</li>
+            <li>Фотографии/видео, прайсы, спецификации</li>
+            <li>Расчёт логистики и сроков</li>
+            <li>Договор, инвойс, упаковочный лист</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="container" id="categories">
+      <h2 data-i18n="cat.h">Категории</h2>
+      <p class="lead" data-i18n="cat.p">Основные направления.</p>
+      <div class="grid4">
+        <!-- 1 -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 13h18M5 16h14l-2 5H7l-2-5Zm2-9h3l2 3h7v6H5V7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ru">Строительная техника</div>
+          <img src="Images/hhh.jpg" alt="Строительная техника" loading="lazy">
+          <div class="kg">Курулуш техникалары</div>
+
+          <!-- RU -->
+          <ul class="list ru">
+            <li>Экскаваторы</li><li>Погрузчики</li><li>Бульдозеры</li><li>Автогрейдеры</li><li>Автокраны</li><li>Башенные краны</li><li>Манипуляторы</li><li>Бетононасосы и автобетоносмесители</li><li>Самосвалы и тягачи</li><li>Буровые машины</li><li>Сваебойные установки</li><li>Телескопические краны</li>
+          </ul>
+
+          <!-- KG -->
+          <ul class="list kg">
+            <li>Экскаваторлор</li><li>Жүктөгүчтөр</li><li>Бульдозерлер</li><li>Автогрейдерлер</li><li>Автокрандар</li><li>Мунаралуу крандар</li><li>Манипуляторлор</li><li>Бетон насостору жана автобетономешалкалар</li><li>Самосвалдар жана тарткычтар</li><li>Бургу машиналары</li><li>Свай каккыч жабдуулар</li><li>Телескопиялык крандар</li>
+          </ul>
+        </article>
+
+        <!-- 2 -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20l4-16h4l4 16M12 4v4m0 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ru">Дорожное строительство</div>
+          <img src="Images/69.jpg" alt="Дорожное строительство" loading="lazy">
+          <div class="kg">Жол куруу иштери</div>
+
+          <!-- RU -->
+          <ul class="list ru">
+            <li>Бетономесительные узлы</li><li>Вибропрессы для плитки/блоков</li><li>Дробильно-сортировочные комплексы</li><li>Асфальтобетонные заводы</li><li>Финишеры</li><li>Катки</li><li>Автогудронаторы</li><li>Фрезы дорожные</li><li>Разметочные машины</li><li>Ресайклеры</li><li>Автогрейдеры (для профилирования)</li><li>Асфальтоукладчики</li><li>Станки для бордюров/кирпичей</li>
+          </ul>
+
+          <!-- KG -->
+          <ul class="list kg">
+            <li>Бетон аралаштыруучу түйүндөр</li><li>Плитка/блок үчүн вибропресстер</li><li>Дробилко-сорттоочу комплекстер</li><li>Асфальтобетон заводдору</li><li>Финишерлер</li><li>Катоктор</li><li>Автогудронаторлор</li><li>Жол фрезалары</li><li>Белгилөөчү машиналар</li><li>Ресайклерлер</li><li>Жол профилдегич автогрейдерлер</li><li>Асфальт төшөгүчтөр</li><li>Бордюр/кирпич станоктору</li>
+          </ul>
+        </article>
+
+        <!-- 3 -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7l9-4 9 4v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7Zm6 10v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ru">Склад и логистика</div>
+          <img src="Images/70.png" alt="Склад и логистика" loading="lazy">
+
+          <!-- RU -->
+          <ul class="list ru">
+            <li>Складские стеллажные системы (паллетные, мезонины)</li><li>Вилочные и телескопические погрузчики</li><li>Мини-погрузчики и складская техника</li><li>Конвейеры и ленточные транспортеры</li><li>Кран-штабелёры</li><li>Складские подъемники и лифты</li><li>Автоматизированные складские комплексы</li><li>Холодильные и морозильные склады</li>
+          </ul>
+        </article>
+
+        <!-- 4 -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l2 4 4 .5-3 3 .8 4L12 12l-3.8 2.5.8-4-3-3 4-.5 2-4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ru">Оборудование и спецтехника</div>
+          <img src="Images/71.jpg" alt="Оборудование и спецтехника" loading="lazy">
+
+          <!-- RU -->
+          <ul class="list ru">
+            <li>Бетономесительные установки</li><li>Цементные заводы</li><li>Линии по производству пенобетона и газобетона</li><li>Кирпичные заводы</li><li>Оборудование для производства цементных изделий</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="container" id="services">
+      <h2 data-i18n="svc.h">Что делаем</h2>
+      <p class="lead" data-i18n="svc.p">Полный цикл от запроса до поставки под ключ.</p>
+      <div class="grid3">
+        <div class="svc">
+          <strong data-i18n="svc.s1t">Подбор поставщика</strong>
+          <p class="muted" data-i18n="svc.s1d">Анализ рынка, 3–5 заводов, торг, Фотографии.</p>
+        </div>
+        <div class="svc">
+          <strong data-i18n="svc.s2t">Документы и оплата</strong>
+          <p class="muted" data-i18n="svc.s2d">Контракт, инвойс, упаковочный лист, безопасные платежи.</p>
+        </div>
+        <div class="svc">
+          <strong data-i18n="svc.s3t">Логистика и таможня</strong>
+          <p class="muted" data-i18n="svc.s3d">CIP Бишкек/Ош, мультимодальные схемы, сроки и контроль.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="container" id="about">
+      <h2 data-i18n="about.h">О нас</h2>
+      <p class="lead" data-i18n="about.p">Работаем с Китаем, говорим на RU/KG/CN/EN. Помогаем быстро и безопасно привозить технику и оборудование под задачи клиента.</p>
+    </section>
+
+    <!-- Contact / Quote form -->
+    <section class="container" id="contact">
+      <h2 data-i18n="form.h">Запросить предложение</h2>
+      <p class="lead" data-i18n="form.p">Заполните форму — ответим и пришлём варианты с ценами.</p>
+      <form class="form" id="quote-form">
+        <div class="row">
+          <div>
+            <label for="name" data-i18n="form.name">Имя</label>
+            <input id="name" name="name" placeholder="Имя" required />
+          </div>
+          <div>
+            <label for="phone" data-i18n="form.phone">Телефон (WhatsApp)</label>
+            <input id="phone" name="phone" placeholder="+996 ..." required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="category" data-i18n="form.cat">Категория</label>
+            <select id="category" name="category" required></select>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" placeholder="you@example.com" />
+          </div>
+        </div>
+        <div>
+          <label for="msg" data-i18n="form.msg">Кратко опишите запрос</label>
+          <textarea id="msg" name="msg" rows="4" placeholder="Объём, сроки, бюджет, важные параметры..."></textarea>
+        </div>
+        <div class="row" style="align-items:center">
+          <button class="btn" type="submit" id="send-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 12a9.5 9.5 0 11-17.2 5.4L3 21l3.8-1.2A9.5 9.5 0 1121.5 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 10.5c.3 3 3.2 5 5 5 .6 0 1.8-.4 2.2-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span data-i18n="form.btn">Отправить в WhatsApp</span>
+          </button>
+          <span class="muted" id="footer-note" data-i18n="footer.note">RU/KG • CIP Бишкек • WeChat/Alipay • Инвойс/Контракт</span>
+          <span class="muted"> — <a id="mailto" href="mailto:info@example.com">info@example.com</a></span>
+        </div>
+        <div class="success" id="ok" data-i18n="form.ok">Готово! Открыли WhatsApp с заполненным сообщением.</div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div>© <span id="year"></span> <strong id="brand-foot">ChinaConstruct.kg</strong></div>
+      <div class="muted"><span data-i18n="footer.note">RU/KG • CIP Бишкек • WeChat/Alipay • Инвойс/Контракт</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // ====== SETTINGS (replace!) ======
+    const WHATSAPP_PHONE = '996XXXXXXXXX'; // ← замените на свой номер без +, например 996555123456
+    const CONTACT_EMAIL   = 'info@example.com';
+    const BRAND           = 'ChinaConstruct.kg';
+
+    // ====== I18N ======
+    const t = {
+      ru: {
+        nav:{categories:'Категории',services:'Услуги',about:'О нас',contact:'Контакты'},
+        hero:{
+          title:'Импорт и поставка техники из Китая',
+          subtitle:'Подбираем завод, проверяем, оформляем, доставляем. Категории ниже представлены сразу на русском и кыргызском.',
+          cta:'Получить предложение', see:'Смотреть категории',
+          b1:'CIP/FOB Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс | Контракт'
+          b1:'CIP/FOB Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс | Контракт'
+        },
+        side:{title:'Что вы получите',li1:'Подбор 3–5 заводов под ваш запрос',li2:'Фотографии/видео, прайсы, спецификации',li3:'Расчёт логистики и сроков',li4:'Договор, инвойс, упаковочный лист'},
+        cat:{h:'Категории',p:'Основные направления.'},
+        svc:{h:'Что делаем',p:'Полный цикл от запроса до поставки под ключ.',s1t:'Подбор поставщика',s1d:'Анализ рынка, 3–5 заводов, торг, фотографии.',s2t:'Документы и оплата',s2d:'Контракт, инвойс, упаковочный лист, безопасные платежи.',s3t:'Логистика и таможня',s3d:'CIP Бишкек/Ош, мультимодальные схемы, сроки и контроль.'},
+        about:{h:'О нас',p:'Работаем с Китаем, говорим на RU/KG/CN/EN. Помогаем быстро и безопасно привозить технику и оборудование под задачи клиента.'},
+        form:{h:'Запросить предложение',p:'Заполните форму — ответим и пришлём варианты с ценами.',name:'Имя',phone:'Телефон (WhatsApp)',cat:'Категория',msg:'Кратко опишите запрос',btn:'Отправить в WhatsApp',ok:'Готово! Открыли WhatsApp с заполненным сообщением.'},
+        footer:{note:'RU/KG • CIP Бишкек • WeChat/Alipay • Инвойс/Контракт'},
+        select:['Строительная техника','Дорожное строительство','Склад и логистика','Оборудование и спецтехника']
+      },
+      kg: {
+        nav:{categories:'Категориялар',services:'Кызматтар',about:'Биз жөнүндө',contact:'Байланыш'},
+        hero:{
+          title:'Кытайдан техника жеткирүү жана импорт',
+          subtitle:'Завод тандайбыз, текшеребиз, документтештирип жеткиребиз.',
+          cta:'Коммерциялык сунуш', see:'Категорияларды көрүү',
+          b1:'CIP Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс / Келишим'
+        },
+        side:{title:'Эмне аласыз',li1:'Сиздин сурооңузга 3–5 завод тандайбыз',li2:'Сүрөт/видео, прайс, спецификациялар',li3:'Логистика жана мөөнөт эсептөөлөрү',li4:'Келишим, инвойс, таңгактоо тизмеси'},
+        cat:{h:'Категориялар',p:'Негизги багыттар.'},
+        svc:{h:'Эмне кылабыз',p:'Сурамдан жеткирүүгө чейин толук цикл.',s1t:'Жеткируучуну тандоо',s1d:'Базар анализи, 3–5 завод, соодалашуу, үлгү.',s2t:'Документ жана төлөм',s2d:'Келишим, инвойс, таңгактоо тизмеси, коопсуз төлөмдөр.',s3t:'Логистика жана бажы',s3d:'CIP Бишкек/Ош, мультимодалдуу схемалар, мөөнөт жана көзөмөл.'},
+        about:{h:'Биз жөнүндө',p:'Кытай менен иштейбиз, RU/KG/CN/EN. Кардарга ылайык техника жана жабдууларды тез жана коопсуз алып келебиз.'},
+        form:{h:'Коммерциялык сунуш сураңыз',p:'Форманы толтуруңуз — жооп берип, баалар менен варианттарды жиберебиз.',name:'Аты-жөнү',phone:'Телефон (WhatsApp)',cat:'Категория',msg:'Сурамды кыскача жазыңыз',btn:'WhatsApp аркылуу жөнөтүү',ok:'Даяр! WhatsApp алдын ала толтурулган билдирүү менен ачылды.'},
+        footer:{note:'KG • CIP Бишкек • WeChat/Alipay • Инвойс/Келишим'},
+        select:['Курулуш техникалары','Жол куруу иштери','Кампа жана логистика','Жабдуулар жана атайын техника']
+      }
+    };
+
+    const $ = (sel,ctx=document)=>ctx.querySelector(sel);
+    const $$ = (sel,ctx=document)=>Array.from(ctx.querySelectorAll(sel));
+
+    function applyLang(lang){
+      const dict = t[lang];
+      if(!dict) return;
+
+      // Replace all data-i18n texts
+      $$('[data-i18n]').forEach(node=>{
+        const key = node.getAttribute('data-i18n');
+        const parts = key.split('.');
+        let cur = dict; for(const p of parts){ if(!cur) break; cur = cur[p]; }
+        if(typeof cur === 'string') node.textContent = cur;
+      });
+
+      // Fill select options per language
+      const sel = $('#category');
+      if (sel) {
+        sel.innerHTML = '';
+        (dict.select||[]).forEach(txt=>{
+          const opt = document.createElement('option');
+          opt.value = txt; opt.textContent = txt;
+          sel.appendChild(opt);
+        });
+      }
+
+      // Toggle active chip
+      $('#btn-ru').classList.toggle('active', lang==='ru');
+      $('#btn-kg').classList.toggle('active', lang==='kg');
+
+      // RU/KG visibility by class on <html>
+      document.documentElement.classList.toggle('lang-ru', lang==='ru');
+      document.documentElement.classList.toggle('lang-kg', lang==='kg');
+      document.documentElement.lang = lang;
+
+      // Brand/email/year
+      $('#year').textContent = new Date().getFullYear();
+      $('#brand').textContent = BRAND; $('#brand-foot').textContent = BRAND;
+      $('#mailto').href = `mailto:${CONTACT_EMAIL}`; $('#mailto').textContent = CONTACT_EMAIL;
+
+      // Persist + url
+      try{ localStorage.setItem('lang', lang); }catch(e){}
+      const url = new URL(location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState({}, '', url);
+    }
+
+    // Init: restore language
+    const qp = new URLSearchParams(location.search).get('lang');
+    const saved = (()=>{ try{ return localStorage.getItem('lang'); }catch(e){ return null; } })();
+    applyLang(qp || saved || 'ru');
+
+    // Lang buttons
+    $('#btn-ru').addEventListener('click', ()=>applyLang('ru'));
+    $('#btn-kg').addEventListener('click', ()=>applyLang('kg'));
+
+    // Form → WhatsApp
+    $('#quote-form').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = $('#name').value.trim();
+      const phone = $('#phone').value.trim();
+      const cat = $('#category').value;
+      const email = $('#email').value.trim();
+      const msg = $('#msg').value.trim();
+      const lines = [
+        'Заявка с сайта',
+        `Имя: ${name}`,
+        `Телефон: ${phone}`,
+        `Категория: ${cat}`,
+        email?`Email: ${email}`: null,
+        msg?`Сообщение: ${msg}`: null
+      ].filter(Boolean);
+      const text = encodeURIComponent(lines.join('\n'));
+      const wa = `https://wa.me/${WHATSAPP_PHONE}?text=${text}`;
+      window.open(wa, '_blank');
+      $('#ok').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
