@@ -5,7 +5,7 @@
 }
 
 .side-card {
-  background: rgba(255,255,255,.10);
+  background: #ffffffd9;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,.25);
   border-radius: 18px;
