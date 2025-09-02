@@ -5,13 +5,12 @@
 }
 
 .side-card {
-  background: rgba(255,255,255,.10);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 18px;
-  padding:20px;
-  color:#fff;   /* теперь весь текст внутри блока белый */
-}
+    background: rgba(255, 255, 255, .85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 18px;
+    padding: 20px;
+    color: #ffffff;
 
 .side-card ul {
   margin:0;
