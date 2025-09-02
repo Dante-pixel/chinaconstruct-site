@@ -4,17 +4,17 @@
     url("hhh.jpg") center/cover no-repeat;
 }
 
-
 .side-card {
   background: rgba(255,255,255,.10);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,.25);
   border-radius: 18px;
   padding:20px;
-  color:#fff;   /* 👈 добавь это */
+  color:#fff;   /* теперь весь текст внутри блока белый */
 }
+
 .side-card ul {
   margin:0;
   padding-left:18px;
-  color:#fff; /* 👈 добавь */
+  color:#fff; /* списки тоже белые */
 }
