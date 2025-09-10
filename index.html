@@ -414,123 +414,140 @@
 </footer>
 
 
+<script>
+  // ====== SETTINGS (replace!) ======
+  const WHATSAPP_PHONE = '996XXXXXXXXX'; // ← замените на свой номер без +, например 996555123456
+  const BRAND = 'ChinaConstruct.kg';     // ← ваш бренд
+  const CONTACT_EMAIL = 'info@example.com'; // ← ваша почта
 
-  <script>
-    // ====== SETTINGS (replace!) ======
-    const WHATSAPP_PHONE = '996XXXXXXXXX'; // ← замените на свой номер без +, например 996555123456
-
-    // ====== I18N ======
-    const t = {
-      ru: {
-        nav:{categories:'Категории',services:'Услуги',about:'О нас',contact:'Контакты'},
-        hero:{
-          title:'Импорт техники из Китая',
-          subtitle:'Подбираем завод, проверяем, оформляем, доставляем. Категории ниже представлены сразу на русском и кыргызском.',
-          cta:'Получить предложение', see:'Смотреть категории',
-          b1:'CIP/FOB Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс | Контракт'
-        },
-        side:{title:'Что вы получите',li1:'Подбор 3–5 заводов под ваш запрос',li2:'Фотографии/видео, прайсы, спецификации',li3:'Расчёт логистики и сроков',li4:'Договор, инвойс, упаковочный лист'},
-        cat:{h:'Категории',p:'Основные направления.'},
-        svc:{h:'Что делаем',p:'Полный цикл от запроса до поставки под ключ.',s1t:'Подбор поставщика',s1d:'Анализ рынка, 3–5 заводов, торг, фотографии.',s2t:'Документы и оплата',s2d:'Контракт, инвойс, упаковочный лист, безопасные платежи.',s3t:'Логистика и таможня',s3d:'CIP Бишкек/Ош, мультимодальные схемы, сроки и контроль.'},
-        about:{h:'О нас',p:'Работаем с Китаем, говорим на RU/KG/CN/EN. Помогаем быстро и безопасно привозить технику и оборудование под задачи клиента.'},
-        form:{h:'Запросить предложение',p:'Заполните форму — ответим и пришлём варианты с ценами.',name:'Имя',phone:'Телефон (WhatsApp)',cat:'Категория',msg:'Кратко опишите запрос',btn:'Отправить в WhatsApp',ok:'Готово! Открыли WhatsApp с заполненным сообщением.'},
-   
-        select:['Строительная техника','Дорожное строительство','Склад и логистика','Оборудование и спецтехника']
+  // ====== I18N ======
+  const t = {
+    ru: {
+      nav:{categories:'Категории',services:'Услуги',about:'О нас',contact:'Контакты'},
+      hero:{
+        title:'Импорт техники из Китая',
+        subtitle:'Подбираем завод, проверяем, оформляем, доставляем. Категории ниже представлены сразу на русском и кыргызском.',
+        cta:'Получить предложение', see:'Смотреть категории',
+        b1:'CIP/FOB Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс | Контракт'
       },
-      kg: {
-        nav:{categories:'Категориялар',services:'Кызматтар',about:'Биз жөнүндө',contact:'Байланыш'},
-        hero:{
-          title:'Кытайдан техника жеткирүү жана импорт',
-          subtitle:'Завод тандайбыз, текшеребиз, документтештирип жеткиребиз.',
-          cta:'Коммерциялык сунуш', see:'Категорияларды көрүү',
-          b1:'CIP Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс / Келишим'
-        },
-        side:{title:'Эмне аласыз',li1:'Сиздин сурооңузга 3–5 завод тандайбыз',li2:'Сүрөт/видео, прайс, спецификациялар',li3:'Логистика жана мөөнөт эсептөөлөрү',li4:'Келишим, инвойс, таңгактоо тизмеси'},
-        cat:{h:'Категориялар',p:'Негизги багыттар.'},
-        svc:{h:'Эмне кылабыз',p:'Сурамдан жеткирүүгө чейин толук цикл.',s1t:'Жеткируучуну тандоо',s1d:'Базар анализи, 3–5 завод, соодалашуу, үлгү.',s2t:'Документ жана төлөм',s2d:'Келишим, инвойс, таңгактоо тизмеси, коопсуз төлөмдөр.',s3t:'Логистика жана бажы',s3d:'CIP Бишкек/Ош, мультимодалдуу схемалар, мөөнөт жана көзөмөл.'},
-        about:{h:'Биз жөнүндө',p:'Кытай менен иштейбиз, RU/KG/CN/EN. Кардарга ылайык техника жана жабдууларды тез жана коопсуз алып келебиз.'},
-        form:{h:'Коммерциялык сунуш сураңыз',p:'Форманы толтуруңуз — жооп берип, баалар менен варианттарды жиберебиз.',name:'Аты-жөнү',phone:'Телефон (WhatsApp)',cat:'Категория',msg:'Сурамды кыскача жазыңыз',btn:'WhatsApp аркылуу жөнөтүү',ok:'Даяр! WhatsApp алдын ала толтурулган билдирүү менен ачылды.'},
-        select:['Курулуш техникалары','Жол куруу иштери','Кампа жана логистика','Жабдуулар жана атайын техника']
-      }
-    };
+      side:{title:'Что вы получите',li1:'Подбор 3–5 заводов под ваш запрос',li2:'Фотографии/видео, прайсы, спецификации',li3:'Расчёт логистики и сроков',li4:'Договор, инвойс, упаковочный лист'},
+      cat:{h:'Категории',p:'Основные направления.'},
+      svc:{h:'Что делаем',p:'Полный цикл от запроса до поставки под ключ.',s1t:'Подбор поставщика',s1d:'Анализ рынка, 3–5 заводов, торг, фотографии.',s2t:'Документы и оплата',s2d:'Контракт, инвойс, упаковочный лист, безопасные платежи.',s3t:'Логистика и таможня',s3d:'CIP Бишкек/Ош, мультимодальные схемы, сроки и контроль.'},
+      about:{h:'О нас',p:'Работаем с Китаем, говорим на RU/KG/CN/EN. Помогаем быстро и безопасно привозить технику и оборудование под задачи клиента.'},
+      form:{h:'Запросить предложение',p:'Заполните форму — ответим и пришлём варианты с ценами.',name:'Имя',phone:'Телефон (WhatsApp)',cat:'Категория',msg:'Кратко опишите запрос',btn:'Отправить в WhatsApp',ok:'Готово! Открыли WhatsApp с заполненным сообщением.'},
+      select:['Строительная техника','Дорожное строительство','Склад и логистика','Оборудование и спецтехника']
+    },
+    kg: {
+      nav:{categories:'Категориялар',services:'Кызматтар',about:'Биз жөнүндө',contact:'Байланыш'},
+      hero:{
+        title:'Кытайдан техника жеткирүү жана импорт',
+        subtitle:'Завод тандайбыз, текшеребиз, документтештирип жеткиребиз.',
+        cta:'Коммерциялык сунуш', see:'Категорияларды көрүү',
+        b1:'CIP Бишкек', b2:'OEM / ODM', b3:'QC инспекция', b4:'Инвойс / Келишим'
+      },
+      side:{title:'Эмне аласыз',li1:'Сиздин сурооңузга 3–5 завод тандайбыз',li2:'Сүрөт/видео, прайс, спецификациялар',li3:'Логистика жана мөөнөт эсептөөлөрү',li4:'Келишим, инвойс, таңгактоо тизмеси'},
+      cat:{h:'Категориялар',p:'Негизги багыттар.'},
+      svc:{h:'Эмне кылабыз',p:'Сурамдан жеткирүүгө чейин толук цикл.',s1t:'Жеткируучуну тандоо',s1d:'Базар анализи, 3–5 завод, соодалашуу, үлгү.',s2t:'Документ жана төлөм',s2d:'Келишим, инвойс, таңгактоо тизмеси, коопсуз төлөмдөр.',s3t:'Логистика жана бажы',s3d:'CIP Бишкек/Ош, мультимодалдуу схемалар, мөөнөт жана көзөмөл.'},
+      about:{h:'Биз жөнүндө',p:'Кытай менен иштейбиз, RU/KG/CN/EN. Кардарга ылайык техника жана жабдууларды тез жана коопсуз алып келебиз.'},
+      form:{h:'Коммерциялык сунуш сураңыз',p:'Форманы толтуруңуз — жооп берип, баалар менен варианттарды жиберебиз.',name:'Аты-жөнү',phone:'Телефон (WhatsApp)',cat:'Категория',msg:'Сурамды кыскача жазыңыз',btn:'WhatsApp аркылуу жөнөтүү',ok:'Даяр! WhatsApp алдын ала толтурулган билдирүү менен ачылды.'},
+      select:['Курулуш техникалары','Жол куруу иштери','Кампа жана логистика','Жабдуулар жана атайын техника']
+    }
+  };
 
-    const $ = (sel,ctx=document)=>ctx.querySelector(sel);
-    const $$ = (sel,ctx=document)=>Array.from(ctx.querySelectorAll(sel));
+  const $ = (sel,ctx=document)=>ctx.querySelector(sel);
+  const $$ = (sel,ctx=document)=>Array.from(ctx.querySelectorAll(sel));
 
-    function applyLang(lang){
-      const dict = t[lang];
-      if(!dict) return;
+  function setTextSafe(id, value){
+    const node = $('#'+id);
+    if (node != null) node.textContent = value;
+  }
+  function setHrefTextSafe(id, href, text){
+    const node = $('#'+id);
+    if (node != null){
+      if (href) node.href = href;
+      if (text) node.textContent = text;
+    }
+  }
 
-      // Replace all data-i18n texts
-      $$('[data-i18n]').forEach(node=>{
-        const key = node.getAttribute('data-i18n');
-        const parts = key.split('.');
-        let cur = dict; for(const p of parts){ if(!cur) break; cur = cur[p]; }
-        if(typeof cur === 'string') node.textContent = cur;
+  function applyLang(lang){
+    const dict = t[lang];
+    if(!dict) return;
+
+    // Replace all data-i18n texts
+    $$('[data-i18n]').forEach(node=>{
+      const key = node.getAttribute('data-i18n');
+      const parts = key.split('.');
+      let cur = dict; for(const p of parts){ if(!cur) break; cur = cur[p]; }
+      if(typeof cur === 'string') node.textContent = cur;
+    });
+
+    // Fill select options per language
+    const sel = $('#category');
+    if (sel) {
+      sel.innerHTML = '';
+      (dict.select||[]).forEach(txt=>{
+        const opt = document.createElement('option');
+        opt.value = txt; opt.textContent = txt;
+        sel.appendChild(opt);
       });
-
-      // Fill select options per language
-      const sel = $('#category');
-      if (sel) {
-        sel.innerHTML = '';
-        (dict.select||[]).forEach(txt=>{
-          const opt = document.createElement('option');
-          opt.value = txt; opt.textContent = txt;
-          sel.appendChild(opt);
-        });
-      }
-
-      // Toggle active chip
-      $('#btn-ru').classList.toggle('active', lang==='ru');
-      $('#btn-kg').classList.toggle('active', lang==='kg');
-
-      // RU/KG visibility by class on <html>
-      document.documentElement.classList.toggle('lang-ru', lang==='ru');
-      document.documentElement.classList.toggle('lang-kg', lang==='kg');
-      document.documentElement.lang = lang;
-
-      // Brand/email/year
-      $('#year').textContent = new Date().getFullYear();
-      $('#brand').textContent = BRAND; $('#brand-foot').textContent = BRAND;
-      $('#mailto').href = `mailto:${CONTACT_EMAIL}`; $('#mailto').textContent = CONTACT_EMAIL;
-
-      // Persist + url
-      try{ localStorage.setItem('lang', lang); }catch(e){}
-      const url = new URL(location.href);
-      url.searchParams.set('lang', lang);
-      history.replaceState({}, '', url);
     }
 
-    // Init: restore language
-    const qp = new URLSearchParams(location.search).get('lang');
-    const saved = (()=>{ try{ return localStorage.getItem('lang'); }catch(e){ return null; } })();
-    applyLang(qp || saved || 'ru');
+    // Toggle active chip
+    $('#btn-ru')?.classList.toggle('active', lang==='ru');
+    $('#btn-kg')?.classList.toggle('active', lang==='kg');
 
-    // Lang buttons
-    $('#btn-ru').addEventListener('click', ()=>applyLang('ru'));
-    $('#btn-kg').addEventListener('click', ()=>applyLang('kg'));
+    // RU/KG visibility by class on <html>
+    const root = document.documentElement;
+    root.classList.toggle('lang-ru', lang==='ru');
+    root.classList.toggle('lang-kg', lang==='kg');
+    root.lang = lang;
 
-    // Form → WhatsApp
-    $('#quote-form').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const name = $('#name').value.trim();
-      const phone = $('#phone').value.trim();
-      const cat = $('#category').value;
-      const email = $('#email').value.trim();
-      const msg = $('#msg').value.trim();
-      const lines = [
-        'Заявка с сайта',
-        `Имя: ${name}`,
-        `Телефон: ${phone}`,
-        `Категория: ${cat}`,
-        email?`Email: ${email}`: null,
-        msg?`Сообщение: ${msg}`: null
-      ].filter(Boolean);
-      const text = encodeURIComponent(lines.join('\n'));
-      const wa = `https://wa.me/${WHATSAPP_PHONE}?text=${text}`;
-      window.open(wa, '_blank');
-      $('#ok').style.display = 'block';
-    });
-  </script>
+    // Brand/email/year — только если элементы есть
+    setTextSafe('year', String(new Date().getFullYear()));
+    setTextSafe('brand', BRAND);
+    setTextSafe('brand-foot', BRAND);
+    setHrefTextSafe('mailto', `mailto:${CONTACT_EMAIL}`, CONTACT_EMAIL);
+    setHrefTextSafe('mailto-foot', `mailto:${CONTACT_EMAIL}`, CONTACT_EMAIL);
+
+    // Persist + url
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+    const url = new URL(location.href);
+    url.searchParams.set('lang', lang);
+    history.replaceState({}, '', url);
+  }
+
+  // Init: restore language
+  const qp = new URLSearchParams(location.search).get('lang');
+  let saved = null;
+  try{ saved = localStorage.getItem('lang'); }catch(e){}
+  applyLang(qp || saved || 'ru');
+
+  // Lang buttons
+  $('#btn-ru')?.addEventListener('click', ()=>applyLang('ru'));
+  $('#btn-kg')?.addEventListener('click', ()=>applyLang('kg'));
+
+  // Form → WhatsApp
+  $('#quote-form')?.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = $('#name')?.value.trim() || '';
+    const phone = $('#phone')?.value.trim() || '';
+    const cat = $('#category')?.value || '';
+    const email = $('#email')?.value.trim() || '';
+    const msg = $('#msg')?.value.trim() || '';
+    const lines = [
+      'Заявка с сайта',
+      `Имя: ${name}`,
+      `Телефон: ${phone}`,
+      `Категория: ${cat}`,
+      email?`Email: ${email}`: null,
+      msg?`Сообщение: ${msg}`: null
+    ].filter(Boolean);
+    const text = encodeURIComponent(lines.join('\n'));
+    const wa = `https://wa.me/${WHATSAPP_PHONE}?text=${text}`;
+    window.open(wa, '_blank', 'noopener,noreferrer');
+    const ok = $('#ok'); if (ok) ok.style.display = 'block';
+  });
+</script>
+
 </body>
 </html>
