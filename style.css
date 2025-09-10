@@ -3,3 +3,37 @@
     linear-gradient(180deg, rgba(11,46,78,.78) 0%, rgba(11,46,78,.48) 55%, rgba(11,46,78,.65) 100%),
     url("hhh.jpg") center/cover no-repeat;
 }
+
+
+/* Footer layout → соц-сети справа снизу */
+footer .foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;   /* прижимаем к нижней линии футера */
+  gap:24px;
+  flex-wrap:wrap;
+}
+footer .foot .right{
+  margin-left:auto;       /* уезжает вправо */
+  text-align:right;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;   /* иконки/текст выравниваются по правому краю */
+  gap:12px;
+}
+footer .social{
+  display:flex;
+  gap:12px;
+  justify-content:flex-end; /* ряд иконок прижат вправо */
+}
+
+/* Мобилка: возвращаем влево и столбиком */
+@media (max-width:520px){
+  footer .foot{align-items:flex-start}
+  footer .foot .right{
+    margin-left:0;
+    text-align:left;
+    align-items:flex-start;
+  }
+  footer .social{justify-content:flex-start}
+}
