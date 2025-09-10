@@ -338,79 +338,39 @@
         <div class="success" id="ok" data-i18n="form.ok">Готово! Открыли WhatsApp с заполненным сообщением.</div>
       </form>
     </section>
-  </main>
-<footer>
-  <div class="container foot">
-    <!-- Левый столбец: копирайт + контакты -->
-    <div class="foot-col">
-  
+  </main>/* Footer layout → соц-сети справа снизу */
+footer .foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;   /* прижимаем к нижней линии футера */
+  gap:24px;
+  flex-wrap:wrap;
+}
+footer .foot .right{
+  margin-left:auto;       /* уезжает вправо */
+  text-align:right;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;   /* иконки/текст выравниваются по правому краю */
+  gap:12px;
+}
+footer .social{
+  display:flex;
+  gap:12px;
+  justify-content:flex-end; /* ряд иконок прижат вправо */
+}
 
-      <ul class="contact-list">
-        <!-- Телефон + WhatsApp -->
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M22 16.92v2a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07A19.5 19.5 0 014.15 9.81a19.8 19.8 0 01-3.07-8.63A2 2 0 013.08 1h2a2 2 0 012 1.72c.12.9.34 1.77.66 2.6a2 2 0 01-.45 2.11l-1.2 1.2a16 16 0 007.07 7.07l1.2-1.2a2 2 0 012.11-.45c.83.32 1.7.54 2.6.66A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <a id="tel-link" href="#">+996 501224422</a>
-          <span class="sep">·</span>
-          <a id="wa-link" href="#" target="_blank" rel="noopener">WhatsApp</a>
-        </li>
+/* Мобилка: возвращаем влево и столбиком */
+@media (max-width:520px){
+  footer .foot{align-items:flex-start}
+  footer .foot .right{
+    margin-left:0;
+    text-align:left;
+    align-items:flex-start;
+  }
+  footer .social{justify-content:flex-start}
+}
 
-        <!-- Email -->
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2zm0 0l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <a id="mailto-foot" href="#">bdante025@gmail.com</a>
-        </li>
-
-        <!-- Адрес RU/KG -->
-        <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <a id="addr-link-ru" class="ru" href="#" target="_blank" rel="noopener">Бишкек, ул. Ленина, 312</a>
-          <a id="addr-link-kg" class="kg" href="#" target="_blank" rel="noopener">Бишкек, Ленин көчөсү, 312</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Правый столбец: соцсети + подпись -->
-    <div class="foot-col right">
-      <div class="social">
-        <a id="ig" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-          </svg>
-        </a>
-        <a id="fb" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M14 8h2.5V4.5H14A3.5 3.5 0 0010.5 8v2H8v3.5h2.5V22H14v-8.5h2.5L17 10h-3V8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a id="tg" href="#" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 3L3 11l6.5 2L18 7l-6.5 8.5V21l3.5-3.5L21 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="2" y="6" width="20" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M10 9.5l5 2.5-5 2.5v-5z" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="muted">
-        <span class="ru">RU/KG • CIP/FOB Бишкек • OEM/ODM • Безопасные платежи</span>
-        <span class="kg">RU/KG • CIP/FOB Бишкек • OEM/ODM • Коопсуз төлөмдөр</span>
-      </div>
-    </div>
-  </div>
-</footer>
 
 
 <script>
